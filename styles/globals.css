@@ -1,26 +1,55 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url(../public/assets/fonts/KumbhSans-Light.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url(../public/assets/fonts/KumbhSans-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url(../public/assets/fonts/KumbhSans-Bold.ttf);
+  font-weight: 700;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Kumbh Sans", sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.swiper-button-next {
+  background: white !important;
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50% !important;
+  background-image: url("../public/assets/icons/icon-next.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: 55% 50% !important;
+  background-size: 0.6rem !important;
 }
 
-* {
-  box-sizing: border-box;
+.swiper-button-next::after {
+  content: "" !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.swiper-button-prev {
+  background: white !important;
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50% !important;
+  background-image: url("../public/assets/icons/icon-previous.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: 45% 50% !important;
+  background-size: 0.6rem !important;
+}
+
+.swiper-button-prev::after {
+  content: "" !important;
 }
