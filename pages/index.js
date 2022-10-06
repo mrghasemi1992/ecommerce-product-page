@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header cartNumber={cartNumber} />
+      <Header cartNumber={cartNumber} setCartNumber={setCartNumber} />
       <Slider />
       <section className="p-4 mb-16">
         <h2 className="text-primary-orange text-sm">SNEAKER COMPANY</h2>

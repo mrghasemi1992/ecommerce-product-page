@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
+
 import CartModal from "./CartModal";
 
-const Header = ({ cartNumber }) => {
+const Header = ({ cartNumber, setCartNumber }) => {
   const [cartModalIsOpen, setCartModalIsOpen] = useState(false);
 
   return (
@@ -23,7 +24,7 @@ const Header = ({ cartNumber }) => {
       </div>
 
       <div className="flex items-center gap-x-4">
-        <div className="relative">
+        <div className="relative flex">
           <Image
             src="/assets/icons/icon-cart.svg"
             width={22}
@@ -47,10 +48,12 @@ const Header = ({ cartNumber }) => {
         />
       </div>
 
-      {cartNumber ? (
-        cartModalIsOpen && <CartModal cartNumber={cartNumber} />
-      ) : (
-        <></>
+      {cartModalIsOpen && (
+        <CartModal
+          cartNumber={cartNumber}
+          setCartModalIsOpen={setCartModalIsOpen}
+          setCartNumber={setCartNumber}
+        />
       )}
     </div>
   );
