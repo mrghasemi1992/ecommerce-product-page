@@ -69,7 +69,7 @@ export default function Home() {
         <DesktopSlider />
         <div className="max-w-md">
           <h2 className="text-primary-orange text-sm">SNEAKER COMPANY</h2>
-          <h1 className="font-bold text-2xl my-3 text-neutral-darkBlue">
+          <h1 className="font-bold text-5xl my-3 text-neutral-darkBlue">
             Fall Limited Edition Sneakers
           </h1>
           <p className="text-neutral-darkGrayishBlue font-light mb-8">
