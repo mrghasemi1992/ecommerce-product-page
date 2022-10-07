@@ -10,7 +10,7 @@ const Slider = () => {
     <Swiper
       modules={[Navigation]}
       navigation={true}
-      className="mySwiper"
+      className="mySwiper lg:hidden max-w-md"
       spaceBetween={30}
     >
       <SwiperSlide>

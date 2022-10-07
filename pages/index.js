@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
+
+import DesktopSlider from "../components/DesktopSlider";
 import Header from "../components/Header";
 import Slider from "../components/Slider";
 
@@ -8,10 +10,10 @@ export default function Home() {
   const [cartNumber, setCartNumber] = useState(0);
 
   return (
-    <div>
+    <div className="max-w-5xl mx-auto">
       <Header cartNumber={cartNumber} setCartNumber={setCartNumber} />
       <Slider />
-      <section className="p-4 mb-16">
+      <section className="p-4 mb-16 lg:hidden">
         <h2 className="text-primary-orange text-sm">SNEAKER COMPANY</h2>
         <h1 className="font-bold text-2xl my-3 text-neutral-darkBlue">
           Fall Limited Edition Sneakers
@@ -61,6 +63,63 @@ export default function Home() {
           />
           <p>Add to cart</p>
         </button>
+      </section>
+
+      <section className="hidden lg:flex items-center justify-between mt-16">
+        <DesktopSlider />
+        <div className="max-w-md">
+          <h2 className="text-primary-orange text-sm">SNEAKER COMPANY</h2>
+          <h1 className="font-bold text-2xl my-3 text-neutral-darkBlue">
+            Fall Limited Edition Sneakers
+          </h1>
+          <p className="text-neutral-darkGrayishBlue font-light mb-8">
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they&#39;ll withstand
+            everything the weather can offer.
+          </p>
+
+          <div className="flex items-center gap-x-4">
+            <p className="font-bold text-2xl text-neutral-darkBlue">$125.00</p>
+            <div className="bg-primary-paleOrange text-primary-orange px-2 py-0.5 rounded-lg">
+              50%
+            </div>
+          </div>
+          <del className="text-neutral-grayishBlue mt-4 block">$250</del>
+
+          <div className="flex justify-between mt-6 gap-x-4">
+            <div className="flex items-center bg-neutral-lightGrayishBlue h-14 rounded-lg justify-between px-6 w-1/3">
+              <Image
+                src="/assets/icons/icon-minus.svg"
+                width={12}
+                height={4}
+                alt="Minus"
+                onClick={() => number > 0 && setNumber(number - 1)}
+                className="cursor-pointer"
+              />
+              <div className="font-bold">{number}</div>
+              <Image
+                src="/assets/icons/icon-plus.svg"
+                width={12}
+                height={12}
+                alt="Plus"
+                onClick={() => setNumber(number + 1)}
+                className="cursor-pointer"
+              />
+            </div>
+            <button
+              className="flex items-center justify-center gap-x-2 bg-primary-orange h-14 rounded-lg text-white w-2/3"
+              onClick={() => setCartNumber(number)}
+            >
+              <Image
+                src="/assets/icons/icon-cart-white.svg"
+                width={22}
+                height={20}
+                alt="Cart"
+              />
+              <p>Add to cart</p>
+            </button>
+          </div>
+        </div>
       </section>
     </div>
   );

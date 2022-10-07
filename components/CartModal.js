@@ -8,7 +8,7 @@ const CartModal = ({ cartNumber, setCartModalIsOpen, setCartNumber }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="bg-white absolute rounded-lg z-10 top-[70px] w-[calc(100%-1rem)] left-1/2 transform -translate-x-1/2"
+      className="bg-white absolute rounded-lg z-10 top-[70px] w-[calc(100%-1rem)] right-1/2 transform translate-x-1/2 lg:w-[350px] lg:shadow-2xl lg:right-0 lg:transform-none"
     >
       <h1 className="p-4">Cart</h1>
       <hr />
