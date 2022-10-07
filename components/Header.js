@@ -1,10 +1,16 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useClickAway } from "react-use";
 
 import CartModal from "./CartModal";
 
 const Header = ({ cartNumber, setCartNumber }) => {
   const [cartModalIsOpen, setCartModalIsOpen] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  const menuRef = useRef(null);
+
+  useClickAway(menuRef, () => setMenuIsOpen(false));
 
   return (
     <div className="bg-white p-4 flex justify-between items-center relative">
@@ -14,6 +20,7 @@ const Header = ({ cartNumber, setCartNumber }) => {
           width={16}
           height={15}
           alt="Menu"
+          onClick={() => setMenuIsOpen(true)}
         />
         <Image
           src="/assets/images/logo.svg"
@@ -54,6 +61,29 @@ const Header = ({ cartNumber, setCartNumber }) => {
           setCartModalIsOpen={setCartModalIsOpen}
           setCartNumber={setCartNumber}
         />
+      )}
+
+      {menuIsOpen && (
+        <div className="bg-black bg-opacity-40 fixed inset-0 z-10">
+          <div className="bg-white w-2/3 h-full p-6" ref={menuRef}>
+            <Image
+              src="/assets/icons/icon-close.svg"
+              width={14}
+              height={15}
+              alt="Close"
+              onClick={() => setMenuIsOpen(false)}
+            />
+            <div className="flex gap-y-6 flex-col mt-6">
+              <p className="text-dark-blue font-semibold text-xl">
+                Collections
+              </p>
+              <p className="text-dark-blue font-semibold text-xl">Men</p>
+              <p className="text-dark-blue font-semibold text-xl">Women</p>
+              <p className="text-dark-blue font-semibold text-xl">About</p>
+              <p className="text-dark-blue font-semibold text-xl">Contact</p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
